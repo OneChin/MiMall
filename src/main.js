@@ -6,7 +6,7 @@ import store from './store'
 Vue.config.productionTip = false
 
 new Vue({
-  router,
+  router,  // key: value, key和value一样可以省略value 
   store,
   render: h => h(App)
 }).$mount('#app')
