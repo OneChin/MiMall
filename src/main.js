@@ -4,12 +4,15 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import router from './router'
 import store from './store'
+import env from './env'
 
 
 // 根据前端的跨域方式做调整
 axios.defaults.baseURL = '/api';
 // 设置超时，必须
 
+// 根据环境变量获取不同的请求地址
+axios.defaults.baseURL = env.baseURL;
 
 axios.defaults.timeout = 8000;
 // 拦截器
