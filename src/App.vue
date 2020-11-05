@@ -5,33 +5,20 @@
 </template>
 
 <script>
-import storage from './storage/index'
 export default {
+  data () {
+    return {
+      res: {}
+    }
+  },
   mounted() {
-    // storage.setItem('a', 1);
-    storage.setItem('bf', {a:1}, 'user');
+    // 不会看到请求，被拦截了，但是vue插件可以看到
+    this.axios.get('/user/login').then((res) => {
+      this.res = res;
+    })
   },
 }
 </script>
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+@import './assets/scss/button.scss';
 </style>
